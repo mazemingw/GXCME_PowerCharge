@@ -1,0 +1,10 @@
+.zj{
+  margin:0rpx;
+}
+
+/*分割线样式*/
+.divLine{
+  background: #448AFF;
+  height: 3px;
+  margin-top:12rpx;
+ }

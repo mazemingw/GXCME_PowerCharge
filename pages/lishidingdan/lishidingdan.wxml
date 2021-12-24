@@ -1,0 +1,24 @@
+<!--pages/lishidingdan/lishidingdan.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">历史订单</view></cu-custom>
+
+<view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索订单" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-blue shadow-blur round">搜索</button>
+    </view>
+  </view>
+
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="padding">2021-09-24 17:00</view>
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-xxl padding">
+        <text class="text-price text-blue">80.00  </text>
+        <text class=" cuIcon-roundcheckfill text-green"></text>
+      </view>
+    </view>
+  </view>
+
+<view class="cu-load bg-blue over"></view>

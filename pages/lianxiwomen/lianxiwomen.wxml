@@ -1,0 +1,32 @@
+<!--pages/lianxiwomen/lianxiwomen.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">联系我们</view></cu-custom>
+
+<swiper class="card-swiper {{DotStyle?'square-dot':'square-dot'}}" indicator-dots="true" circular="true" autoplay="true"
+  interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}} ">
+    <view class="swiper-item">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    </view>
+  </swiper-item>
+</swiper>
+
+<view class="grid col-1 content">
+        <!-- 一行一个按钮开始 -->
+
+        <view class="padding-sm">
+          <navigator url="../">
+            <view class="bg-gradual-red padding radius text-center shadow-blur">
+              <view class="text-sm">南宁一物科技@一物高校</view>
+            </view>
+          </navigator>
+        </view>
+
+        <view class="padding-sm">
+          <navigator url="../">
+            <view class="bg-gradual-purple padding radius text-center shadow-blur">
+              <view class="text-sm">客户服务0771-12345678</view>
+            </view>
+          </navigator>
+        </view>
+
+      </view> <!-- 一行一个按钮结束 -->

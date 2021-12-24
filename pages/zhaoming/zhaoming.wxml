@@ -1,0 +1,79 @@
+<!--pages/zhaoming/zhaoming.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">照明&插座电费</view></cu-custom>
+
+<view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索宿舍号" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-blue shadow-blur round">搜索</button>
+    </view>
+  </view>
+
+  <view class="cu-form-group">
+		<view class="title">或者选择宿舍</view>
+		<picker mode="multiSelector" bindchange="MultiChange" bindcolumnchange="MultiColumnChange" value="{{multiIndex}}"
+		 range="{{multiArray}}">
+			<view class="picker">
+				{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+			</view>
+		</picker>
+	</view>
+
+  <view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-orange " ></text> 选择充值数额
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-green shadow round" bindtap="showModal"  data-target="ChooseModal">选择</button>
+  </view>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal" >
+  <view class="cu-dialog" catchtap>
+    <view class="cu-bar bg-white">
+      <view class="action text-blue" bindtap="hideModal">取消</view>
+      <view class="action text-green" bindtap="hideModal">确定</view>
+    </view>
+    <view class="grid col-3 padding-sm">
+      <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
+        <button class="cu-btn orange lg block {{item.checked?'bg-orange':'line-orange'}}" bindtap="ChooseCheckbox" data-value="{{item.value}}"> {{item.name}}
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <radio-group class="block">
+      <view class="cu-list menu text-left">
+        <view class="cu-item" wx:for="{{5}}" wx:key>
+          <label class="flex justify-between align-center flex-sub">
+            <view class="flex-sub">Item {{index +1}}</view>
+            <radio class="round"></radio>
+          </label>
+        </view>
+      </view>
+    </radio-group>
+  </view>
+</view>
+
+<view class="grid col-1 ">
+        <!-- 一行一个按钮开始 -->
+        <view class="padding-sm">
+            <view class='action'>
+            <view class="bg-gradual-red padding radius text-center shadow-blur" bindtap='loadModal' >
+              <view class="text-lg">确认房间进行充值</view>
+            </view>
+          </view>
+         <!-- 模态框 -->
+          <view class='cu-load load-modal' wx:if="{{loadModal}}">
+            <image src='/images/logo.png' class='png' mode='aspectFit'></image>
+            <view class='gray-text'>加载中...</view>
+          </view>
+         <!-- 模态框 -->
+        </view>
+      </view>
+       <!-- 一行一个按钮结束 -->
